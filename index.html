@@ -1,54 +1,60 @@
 <html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" 
-              content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" 
+    content="width=device-width, initial-scale=1.0">
 
-        <title>Jogo de Adivinhação - IFG 2° Áudio e Vídeo</title>
-        <style>
+    <title>Jogo de Adivinhação - IFG 2º Áudio e Vídeo</title>
+    <style>
 
-
-         .corpoDaPagina {
-              font-family: Arial, sans-serif;
+  .corpo_da_pagina{
+     font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #62f30ec9;
+            background-color: #60eb0f;
             margin: 0;
-         }
+  }
 
-.container{
-text-align: center;
-background-color: #9f0ef3c9;
-padding: 20px;
-border-radius: 10px;
-box-shadow: 0px 0px 10px rgba(0, 145, 25, 0.6)
-}
+  .container{
+    text-align: center;
+    background-color: rgb(189, 108, 2);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(145, 0, 0, 0.6);
+
+  }
+
+   .botaoAdivinhar {
+    padding: 10px 20px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    color: #ffffff;
+    background-color: rgb(174, 30, 210);
+   }
 
 
-        </style>
 
-    </head>
-
-<body class="corpoDaPagina">
-
-<div>
-
-
-<divclear class="container">
-<h1>Jogo de Adivinhação</h1>
-<p>Tente adivinhar o número secreto entre 1 e 100</p>
-
-<input type="color"/>
-<input type="checkbox"/>
-<input type="date"/>
-
-<input type="number" id="NMPalpite" min="1" max="100"/>
-<button id="BTNAdivinhar"> Adivinhar </button>
-
-</div>
-
-</body>
+    </style>
+  </head>
   
+    
+  </head>
+  
+<body class="corpo_da_pagina">
+  
+ <divclear class="container">
+  <h1>Jogo de Adivinhação</h1>
+  <p>Tente adivinhar o número secreto entre 1 e 100</p>
+  <input type="number" id="NMPalpite" min="1" max="100"/>
+  <button class="botaoAdivinhar"> Adivinhar </button>
+
+ </div>
+  
+</body>
+
 </html>
+
