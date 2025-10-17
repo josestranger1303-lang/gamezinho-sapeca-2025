@@ -78,7 +78,7 @@
     botao_adivinhar.style.backgroundColor = '#771409';
   }
 
-let numeroSecreto = Math.random();
+let numeroSecreto = Math.floor( Math.random() * 100 ) + 1;
 
   function verificarPalpite(){
     var caixa_texto = document.getElementById('NMPalpite')
