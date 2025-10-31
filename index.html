@@ -19,14 +19,14 @@
 
       .container{
         text-align: center;
-        background-color: #ffffff;
+        background-color: #58008b;
         padding: 20px;
         border-radius: 10px;
-        box-shadow: 0px 0px 10px rgba(145, 31, 0, 0.4);
+        box-shadow: 0px 0px 10px rgba(216, 15, 183, 0.4);
       }
 
       h1{
-        color: #333
+        color: #e61818
       }
 
       input[type="number"]{
@@ -43,8 +43,8 @@
         font-size: 16px;
         cursor: pointer;
         border-radius: 5px;
-        color: #ffffff;
-        background-color: #28a745;
+        color: #000000ea;
+        background-color: #d812be;
       }
 
     </style>
@@ -64,6 +64,8 @@
               onclick="verificarPalpite()"> 
               Adivinhar 
       </button>
+      <div class= "message" id="DIVMensagem"></div>
+
     </div>
     <script>
       function voltarCorOriginalBotao(){
@@ -78,13 +80,18 @@
 
 
       let  numeroSecreto = Math.floor( Math.random() * 100 ) + 1;
+      let  qtdTentativas = 5;
 
       function verificarPalpite(){
          var caixa_texto = document.getElementById('NMPalpite');
+         var div_mensagem = document.getElementById('DIVMensagem')
+
          var chuteDoJogador = parseInt(caixa_texto.value);
          
          if(chuteDoJogador == numeroSecreto){
-           alert("Você acertou!");
+           div_mensagem.textContent = "Você acertou mooo!!! parabéns div@!";
+         }else{
+          div_mensagem.textContent = "c errou mo af melhore!"
          }
           alert(numeroSecreto);
       }
