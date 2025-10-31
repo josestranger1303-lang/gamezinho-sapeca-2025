@@ -13,7 +13,7 @@
           justify-content: center;
           align-items: center;
           height: 100vh;
-          background-color: #b41818;
+          background-color: #27aae7;
           margin: 0;
       }
 
@@ -87,6 +87,12 @@
          var div_mensagem = document.getElementById('DIVMensagem')
 
          var chuteDoJogador = parseInt(caixa_texto.value);
+
+         if 
+         (isNaN(chuteDoJogador)){
+          div_mensagem.textContent = "bixa...põe um numero de verdade nesse trem!";
+          return;
+         }
          
          if(chuteDoJogador == numeroSecreto){
            div_mensagem.textContent = "Você acertou mooo!!! parabéns div@!";
