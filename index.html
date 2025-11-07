@@ -75,7 +75,7 @@
 
       function escurecerBotao(){
         var botao_adivinhar = document.getElementById('BTNAdivinhar');
-        botao_adivinhar.style.backgroundColor = '#F5DD27';
+        botao_adivinhar.disabled = true;
       }
 
 
@@ -110,6 +110,9 @@
            div_mensagem.textContent = "Você acertou mooo!!! parabéns div@!";
          }else{
           div_mensagem.textContent = "c errou mo af melhore!"
+         }
+         if(qtdTentativas == 0){
+          div_mensagem.textContent = "Fim de jogo perdeu veyr anem, o numero era" +numeroSecreto;
          }
          
           alert(numeroSecreto);
