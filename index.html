@@ -13,13 +13,13 @@
           justify-content: center;
           align-items: center;
           height: 100vh;
-          background-color: #27aae7;
+          background-color: #ec7db5;
           margin: 0;
       }
 
       .container{
         text-align: center;
-        background-color: #58008b;
+        background-color: #f86bc2;
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0px 0px 10px rgba(216, 15, 183, 0.4);
@@ -43,8 +43,8 @@
         font-size: 16px;
         cursor: pointer;
         border-radius: 5px;
-        color: #000000ea;
-        background-color: #2dcf35;
+        color: #fd12f1ea;
+        background-color: #be1b1b;
       }
 
     </style>
@@ -104,11 +104,14 @@
           return;
          }
          
+         
+
          if(chuteDoJogador == numeroSecreto){
            div_mensagem.textContent = "Você acertou mooo!!! parabéns div@!";
          }else{
           div_mensagem.textContent = "c errou mo af melhore!"
          }
+         
           alert(numeroSecreto);
       }
 
