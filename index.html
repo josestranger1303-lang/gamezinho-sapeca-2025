@@ -1,126 +1,144 @@
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" 
-          content="width=device-width, initial-scale=1.0">
-    
-    <title>Jogo de Adivinhação - IFG 2º Áudio e Vídeo</title>
-    <style>
 
-      .corpoDaPagina {
-          font-family: Arial, sans-serif;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          height: 100vh;
-          background-color: #ec7db5;
-          margin: 0;
-      }
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-      .container{
-        text-align: center;
-        background-color: #f86bc2;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0px 0px 10px rgba(167, 14, 14, 0.836);
-      }
+  <title>Jogo de Adivinhação - IFG 2º Áudio e Vídeo</title>
+  <style>
+    .corpoDaPagina {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #00127a;
+      margin: 0;
+    }
 
-      h1{
-        color: #f01c97
-      }
+    .container {
+      text-align: center;
+      background-color: #0066ff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(255, 51, 0, 0.726);
+    }
 
-      input[type="number"]{
-        padding: 10px;
-        font-size: 16px;
-        width: 100px;
-        margin-bottom: 10px;
-      }
+    h1 {
+      color: #333
+    }
+
+    input[type="number"] {
+      padding: 10px;
+      font-size: 16px;
+      width: 100px;
+      margin-bottom: 10px;
+    }
 
 
-      button {
-        padding: 10px 20px;
-        border: none;
-        font-size: 16px;
-        cursor: pointer;
-        border-radius: 5px;
-        color: #fd12f1ea;
-        background-color: #be1b1b;
-      }
+    button {
+      padding: 10px 20px;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      color: #ffe159;
+      background-color: #a71616;
+    }
 
-    </style>
-  </head>
+    .message {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
 
-  <body class="corpoDaPagina" >
-     
-    <div class="container">
-      <h1>Jogo de Adivinhação</h1>
-      <p>Tente adivinhar o número secreto entre 1 e 100</p>
+<body class="corpoDaPagina">
 
-      <input type="number" id="NMPalpite" min="1" max="100"/>
+  <div class="container">
+    <h1>Jogo de Adivinhação</h1>
+    <p>Tente adivinhar o número secreto entre 1 e 100</p>
 
-      <button id="BTNAdivinhar" 
-              onmouseover="escurecerBotao()"
-              onmouseout="voltarCorOriginalBotao()"
-              onclick="verificarPalpite()"> 
-              Adivinhar 
-      </button>
-      <div class= "message" id="DIVMensagem"></div>
+    <input type="number" id="NMPalpite" min="1" max="100" />
 
-    </div>
-    <script>
-      function voltarCorOriginalBotao(){
-        var botao_adivinhar = document.getElementById('BTNAdivinhar');
+    <button id="BTNAdivinhar" onmouseover="escurecerBotao()" onmouseout="voltarCorOriginalBotao()"
+      onclick="verificarPalpite()">
+      Adivinhar
+    </button>
+    <div class="message" id="DIVMensagem"></div>
+
+  </div>
+  <script>
+
+    function desabilitarJogo() {
+      var caixa_texto = document.getElementById('NMPalpite');
+      var botao_adivinhar = document.getElementById('BTNAdivinhar');
+      
+      botao_adivinhar.disabled = true;
+      caixa_texto.disabled = true;
+
+      botao_adivinhar.style.backgroundColor = '#DCDCDC';
+    }
+
+    function voltarCorOriginalBotao() {
+      var botao_adivinhar = document.getElementById('BTNAdivinhar');
+      if (botao_adivinhar.disabled == false) {
         botao_adivinhar.style.backgroundColor = '#28a745';
       }
+    }
 
-      function escurecerBotao(){
-        var botao_adivinhar = document.getElementById('BTNAdivinhar');
-        botao_adivinhar.disabled = true;
+    function escurecerBotao() {
+      var botao_adivinhar = document.getElementById('BTNAdivinhar');
+      if (botao_adivinhar.disabled == false) {
+        botao_adivinhar.style.backgroundColor = '#F5DD27';
       }
+    }
 
 
-      let  numeroSecreto = Math.floor( Math.random() * 100 ) + 1;
-      let  qtdTentativas = 5;
+    let numeroSecreto = Math.floor(Math.random() * 100) + 1;
+    let qtdTentativas = 5;
 
-      function verificarPalpite(){
-         var caixa_texto = document.getElementById('NMPalpite');
-         var div_mensagem = document.getElementById('DIVMensagem')
+    function verificarPalpite() {
 
-         var chuteDoJogador = parseInt(caixa_texto.value);
-
-         if 
-         (isNaN(chuteDoJogador)){
-          div_mensagem.textContent = "bixa...põe um numero de verdade nesse trem!";
-          return;
-         }
-         if 
-         (chuteDoJogador > 100){
-          div_mensagem.textContent = "bixa...põe um numero de verdade nesse trem!";
-          return;
-         }
-         if 
-         (chuteDoJogador > 1){
-          div_mensagem.textContent = "bixa...põe um numero de verdade nesse trem!";
-          return;
-         }
-         
-         
-
-         if(chuteDoJogador == numeroSecreto){
-           div_mensagem.textContent = "Você acertou mooo!!! parabéns div@!";
-         }else{
-          div_mensagem.textContent = "c errou mo af melhore!"
-         }
-         if(qtdTentativas == 0){
-          div_mensagem.textContent = "Fim de jogo perdeu veyr anem, o numero era" +numeroSecreto;
-         }
-         
-          alert(numeroSecreto);
-      }
-
-    </script>
+      var caixa_texto = document.getElementById('NMPalpite');
+      var div_mensagem = document.getElementById("DIVMensagem");
+      var chuteDoJogador = parseInt(caixa_texto.value);
     
-  </body>
-</html>
 
+    if (isNaN(chuteDoJogador)) {
+      div_mensagem.textContent = "Por favor, insira um número válido entre 1 e 100.";
+      return;
+    }
 
+    if (chuteDoJogador > 100) {
+      div_mensagem.textContent = "Por favor, insira um número válido entre 1 e 100.";
+      return;
+    }
+
+    if (chuteDoJogador < 1) {
+      div_mensagem.textContent = "Por favor, insira um número válido entre 1 e 100.";
+      return;
+    }
+
+    qtdTentativas = qtdTentativas - 1;
+
+    if (chuteDoJogador == numeroSecreto) {
+        div_mensagem.textContent = "Você acertou!";
+        desabilitarJogo(); 
+    } else if (qtdTentativas > 0) {
+        if (chuteDoJogador > numeroSecreto) {
+          div_mensagem.textContent = "Errado! O número secreto é menor. Você tem "+qtdTentativas+" tentativas"
+        } else {
+          div_mensagem.textContent = "Errado! O número secreto é maior. Você tem "+qtdTentativas+" tentativas"
+        }
+    } else {
+        div_mensagem.textContent = "Fim de jogo! O número era " + numeroSecreto;
+        desabilitarJogo();      
+    }
+  }
+
+  </script>
+
+</body>
+
+</html>QA
